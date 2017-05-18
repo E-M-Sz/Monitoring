@@ -7,6 +7,8 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
+var generateJobs = require("./generateJobs.js");
+
 
 
 app.set('view engine', 'ejs');
@@ -17,9 +19,10 @@ app.use(express.static(__dirname + '/public'));
 
 
 app.get('/', (req, res) => {
-  res.render('index', {nav: 'index'});
+  // res.render('index', {nav: 'index', entrys: generateJobs.returnEntrys});
+  res.render('index', {nav: 'index', entrys: generateJobs.returnEntrys()});
 });
-
+console.log(generateJobs.returnEntrys());
 
 
 io.on('connection', (socket) => {
@@ -30,6 +33,15 @@ io.on('connection', (socket) => {
   });
 
   // MySocketStuff
+  // setInterval(function(){
+  //   generateJobs.genRndEntry();
+  //   console.log(generateJobs.returnEntrys());
+  //   // socket.emit('getEntrysFromServer', entrys[entrys.length-1]);
+  // }, 5000);
+
+  socket.on('getEntrys', () => {
+    socket.emit('getEntrys', generateJobs.returnEntrys);
+  });
 
 });
 
@@ -38,3 +50,7 @@ io.on('connection', (socket) => {
 http.listen(3000, () => {
   console.log('Listening on port 3000');
 });
+
+// setInterval(function(){
+//   console.log(generateJobs.returnEntrys());
+// }, 5000);

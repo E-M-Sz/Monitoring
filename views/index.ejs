@@ -53,8 +53,6 @@
             <input class="form-control search" type="text" placeholder="Search">
           </div>
           <div class="col-2">
-            <%# Button hast currently no function and isn't needed %>
-            <%# <button onclick="testFun()" type="button" class="btn btn-outline-info btn-block">Button Name</button>%>
           </div>
           <div class="col-3 offset-md-1">
             <button type="button" class="btn btn-outline-primary" onclick="resetFilter()">Reset</button>
@@ -88,23 +86,24 @@
           </thead>
           <tbody id="tbodyid" class="list">
 
-            <tr>
-              <td>test</td>
-            </tr>
+            <% entrys.forEach(function(item){ %>
+              <tr>
+                <td><%= item.JOB_NAME %></td>
+                <td><%= item.JOB_START %></td>
+                <td><%= item.JOB_END %></td>
+                <td><%= item.STATE %></td>
+                <td><%= item.STATE_DESCRIPTION %></td>
+                <td><%= item.RECID %></td>
+                <td><%= item.JOB_ABORT %></td>
+              </tr>
+            <% }); %>
+
             <ul class="pagination">
-
-            <!--
-
-            "{COLUMS":['c1','c2','c3'],
-            "DATA":[[1,2,3],[1,2,3],[1,2,3]]}
-
-            -->
-
           </tbody>
         </table>
       </div>
     </div>
-      <%# ------------------------------------------------------------------- %>
+    <%# ------------------------------------------------------------------- %>
 
     </div>
 
