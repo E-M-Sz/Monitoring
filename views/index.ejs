@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <%# Head %>
+    <% include partials/head.ejs %>
+
+  </head>
+  <body>
+
+    <%# Navbar %>
+    <% include partials/nav.ejs %>
+
+    <%# Container %>
+    <div class="container">
+
+      <%# Header ------------------------------------------------------------ %>
+      <div class="py-5">
+        <h6 class="text-muted">Dashboard <i class="fa fa-cog" aria-hidden="true"></i></h6>
+        <h2 class="text-white">Overview</h2>
+
+        <hr class="hr-gray">
+      </div>
+      <%# ------------------------------------------------------------------- %>
+
+
+
+      <%# Graph ------------------------------------------------------------- %>
+      <div class="card">
+        <canvas id="longChart"></canvas>
+      </div>
+      <%# ------------------------------------------------------------------- %>
+
+
+
+
+      <%# Spacer ------------------------------------------------------------ %>
+      <div class="pb-2">
+        <table width="100%">
+          <td><hr class="hr-gray"></td>
+          <td style="width:1px; padding: 0 10px; white-space: nowrap; color: #aaa;">Control Panel</td>
+          <td><hr class="hr-gray"></td>
+        </table>​
+      </div>
+      <%# ------------------------------------------------------------------- %>
+
+
+
+      <%# Control panel ----------------------------------------------------- %>
+      <div id="entrys">
+        <div class="row form-group pb-2">
+          <div class="col-6">
+            <input class="form-control search" type="text" placeholder="Search">
+          </div>
+          <div class="col-2">
+            <%# Button hast currently no function and isn't needed %>
+            <%# <button onclick="testFun()" type="button" class="btn btn-outline-info btn-block">Button Name</button>%>
+          </div>
+          <div class="col-3 offset-md-1">
+            <button type="button" class="btn btn-outline-primary" onclick="resetFilter()">Reset</button>
+            <button type="button" class="btn btn-outline-success" onclick="filterEntrys(0)">0</button>
+            <button type="button" class="btn btn-outline-warning" onclick="filterEntrys(1)">1</button>
+            <button type="button" class="btn btn-outline-danger" onclick="filterEntrys(7)">7</button>
+          </div>
+        </div>
+      <%# ------------------------------------------------------------------- %>
+
+
+
+      <%# Spacer ------------------------------------------------------------ %>
+      <hr class="hr-gray pb-3">
+      <%# ------------------------------------------------------------------- %>
+
+
+
+      <%# Table ------------------------------------------------------------- %>
+      <div class="card bg-inverse">
+        <table id="myTable" class="table table-inverse table-hover">
+          <thead>
+            <th>JOB_NAME</th>
+            <th>JOB_START</th>
+            <th>JOB_END</th>
+            <th>STATE</th>
+            <th>STATE_DESCRIPTION</th>
+            <th>RECID</th>
+            <th>JOB_ABORT</th>
+
+          </thead>
+          <tbody id="tbodyid" class="list">
+
+            <tr>
+              <td>test</td>
+            </tr>
+            <ul class="pagination">
+
+            <!--
+
+            "{COLUMS":['c1','c2','c3'],
+            "DATA":[[1,2,3],[1,2,3],[1,2,3]]}
+
+            -->
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+      <%# ------------------------------------------------------------------- %>
+
+    </div>
+
+
+    <%# Bottom %>
+    <% include partials/bottom.ejs %>
+  </body>
+</html>
