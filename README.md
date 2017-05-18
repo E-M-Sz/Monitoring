@@ -1,2 +1,11 @@
 # Monitoring
-Monitoring App
+Monitoring App for Backend processes.
+
+### Guide
+```bash
+# installation
+npm install
+
+# start
+npm start
+```
