@@ -40,7 +40,7 @@ io.on('connection', (socket) => {
   // }, 5000);
 
   socket.on('getEntrys', () => {
-    socket.emit('getEntrys', generateJobs.returnEntrys);
+    socket.emit('getEntrys', generateJobs.returnEntrys());
   });
 
 });

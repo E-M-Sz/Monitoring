@@ -4,15 +4,13 @@
 let socket = io();
 
 /* List.js */
-let jobList;
 let options = {
-  // valueNames: valueNames,
   valueNames: ['JobName','JobStart','JobEnd','State','StateDescription','RecID','JobAbort'],
   page: 4,
   pagination: true
 };
 
-jobList = new List('entrys', options);
+var jobList = new List('entrys', options);
 /* -------------------------------------------------------------------------- */
 
 // Request new data from server every 'interval' (milliseconds)
@@ -22,7 +20,8 @@ setInterval(function() {
 }, 5000);
 
 socket.on('getEntrys', (serverEntrys) => {
-  console.log(serverEntrys);
+  console.log(serverEntrys[serverEntrys.length-1]);
+  console.log(serverEntrys[serverEntrys.length-1].JOB_NAME);
   jobList.add({
     JobName: serverEntrys[serverEntrys.length-1].JOB_NAME,
     JobStart: serverEntrys[serverEntrys.length-1].JOB_START,

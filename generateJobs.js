@@ -61,8 +61,10 @@ module.exports.returnEntrys = function () {
   return entrys;
 };
 
-entrys.push({JOB_NAME:jobName(),	JOB_START:jobTime('start'),	JOB_END:jobTime('end'),	STATE:jobState(),	STATE_DESCRIPTION:stateDescription(),	RECID:recID(),	JOB_ABORT:''});
+genRndEntry();
 // console.log(returnEntrys());
 setInterval(function(){
   genRndEntry();
+  console.log('Generarted new entry:');
+  console.log(entrys[entrys.length-1]);
 }, 5000);
